@@ -200,3 +200,130 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================
+   CASE FILE BOARD
+   ========================= */
+
+.case-files {
+  position: relative;
+}
+
+.case-intro {
+  max-width: 650px;
+  margin-bottom: 35px;
+  opacity: 0.75;
+}
+
+.case-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  padding: 55px 45px;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.04), transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(0,0,0,0.25), transparent 25%),
+    #171512;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    inset 0 0 80px rgba(0,0,0,0.7),
+    0 20px 50px rgba(0,0,0,0.45);
+  overflow: hidden;
+}
+
+/* Investigation strings */
+
+.case-board::before,
+.case-board::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background: #7d1f1f;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.case-board::before {
+  width: 75%;
+  top: 45%;
+  left: 12%;
+  transform: rotate(-8deg);
+}
+
+.case-board::after {
+  width: 65%;
+  top: 50%;
+  left: 20%;
+  transform: rotate(12deg);
+}
+
+/* Individual files */
+
+.case-file {
+  position: relative;
+  z-index: 1;
+  padding: 28px;
+  min-height: 190px;
+  background: #d8d0bd;
+  color: #171717;
+  border: 1px solid rgba(0,0,0,0.25);
+  box-shadow: 7px 9px 15px rgba(0,0,0,0.5);
+  transform: rotate(-1deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.case-file:nth-child(2) {
+  transform: rotate(2deg);
+}
+
+.case-file:nth-child(3) {
+  transform: rotate(1deg);
+}
+
+.case-file:nth-child(4) {
+  transform: rotate(-2deg);
+}
+
+.case-file:hover {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: 10px 16px 25px rgba(0,0,0,0.6);
+}
+
+.file-number {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  font-weight: bold;
+  opacity: 0.55;
+  margin-bottom: 12px;
+}
+
+.case-file h3 {
+  margin: 0 0 15px;
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+}
+
+.case-file p {
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.file-status {
+  display: inline-block;
+  padding: 5px 9px;
+  border: 1px solid rgba(0,0,0,0.35);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  font-weight: bold;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .case-board {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+  }
+}
